@@ -1,0 +1,103 @@
+.login-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/login-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-form{
+    width: 360px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.login-form [nz-menu-item]{
+    width: 50%;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-model{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
+}
+
+.form-model>li{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.form-model_item{
+    margin-top: 20px;
+    position: relative;
+}
+
+.form-model_item>strong{
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #999999;
+}
+
+.form-model_input{
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid #D6D2D6;
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+}
+
+.form-model_input:focus{
+    border-bottom: 1px solid #18BC9B;
+}
+
+.form-model>.submit-btn{
+    margin: 30px 0 40px;
+}
+
+.error-tip_wrap{
+    line-height: 14px;
+    height: 14px;
+    transform: translateY(60%);
+}
+.form-model .error-tip{
+    font-size: 12px;
+    color: #ff6565;
+    text-align: left;
+    display: block;
+}
+
+.captchaImg-wrap{
+    position: absolute;
+    height: 48px;
+    bottom: 0;
+    right: 0;
+    line-height: 42px;
+}
+
+.captchaImg-wrap>a{
+    font-size: 12px;
+    margin-left: 6px;
+}

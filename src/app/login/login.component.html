@@ -1,0 +1,145 @@
+<div class="login-wrap">
+  <div class="login-form">
+    <ul
+      nz-menu
+      nzMode="horizontal"
+    >
+      <li
+        nz-menu-item
+        [nzSelected]="tabIndex == 1"
+      >
+        <a (click)="tabIndex = 1">平台登录</a>
+      </li>
+      <li
+        nz-menu-item
+        [nzSelected]="tabIndex == 2"
+      >
+        <a (click)="tabIndex = 2">企业登录</a>
+      </li>
+    </ul>
+
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="loginSubmit()"
+    >
+      <ul class="form-model">
+        <li *ngIf="tabIndex == 2">
+          <nz-radio-group formControlName="type">
+            <label
+              nz-radio
+              [nzValue]="4"
+            >货主</label>
+            <label
+              nz-radio
+              [nzValue]="2"
+            >承运</label>
+          </nz-radio-group>
+        </li>
+        <li class="form-model_item">
+          <strong>用户名称</strong>
+          <!-- 表单验证提示 -->
+          <div class="error-tip_wrap">
+            <span
+              class="error-tip"
+              *ngIf="
+                mobile.errors?.required &&
+                !mobile.valid &&
+                (mobile.dirty || mobile.touched)
+              "
+            >用户名称不可为空</span>
+            <span
+              class="error-tip"
+              *ngIf="
+                mobile.errors?.minlength &&
+                !mobile.valid &&
+                (mobile.dirty || mobile.touched)
+              "
+            >请输入11位手机号</span>
+          </div>
+          <input
+            type="text"
+            appInputNumber
+            (input)="getMobile()"
+            placeholder="请输入用户名称"
+            class="form-model_input"
+            formControlName="mobile"
+            maxlength="11"
+          />
+        </li>
+        <li class="form-model_item">
+          <strong>登录密码</strong>
+          <!-- 表单验证提示 -->
+          <div class="error-tip_wrap">
+            <span
+              class="error-tip"
+              *ngIf="
+                password.errors?.required &&
+                !password.valid &&
+                (password.dirty || password.touched)
+              "
+            >登录密码不可为空</span>
+            <span
+              class="error-tip"
+              *ngIf="
+                password.errors?.minlength &&
+                !password.valid &&
+                (password.dirty || password.touched)
+              "
+            >登录密码最小长度为6个字符</span>
+          </div>
+          <input
+            type="password"
+            placeholder="请输入登录密码"
+            class="form-model_input"
+            formControlName="password"
+            maxlength="20"
+          />
+        </li>
+        <!-- 图片验证码 -->
+        <li class="form-model_item">
+          <div class="error-tip_wrap">
+            <span
+              class="error-tip"
+              *ngIf="
+                captcha.errors?.required &&
+                !captcha.valid &&
+                (captcha.dirty || captcha.touched)
+              "
+            >验证码不可为空</span>
+          </div>
+          <input
+            type="text"
+            placeholder="验证码"
+            class="form-model_input"
+            formControlName="captcha"
+            maxlength="4"
+          />
+          <div
+            class="captchaImg-wrap"
+            nz-row
+          >
+            <img
+              [src]="captchaImgUrl"
+              alt=""
+              class="captchaImg"
+            />
+            <a (click)="getCaptchaImg()">{{ captchaImgUrl ? '换一张' : '获取验证码' }}</a>
+          </div>
+        </li>
+        <li class="submit-btn">
+          <button
+            nz-button
+            [nzLoading]="isLogining"
+            nzType="primary"
+            nzBlock
+            nzSize="large"
+            nzShape="round"
+            type="submit"
+          >
+            登录
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>

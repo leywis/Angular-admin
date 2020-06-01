@@ -1,0 +1,141 @@
+@import '../iconfont/iconfont.css';
+
+/* layout - start */
+.cm-nav-wrap {
+  padding: 0 24px;
+  background: #fff;
+}
+
+.cm-content_margin {
+  margin: 24px;
+  /* background: #fff; */
+}
+
+/* layout - end */
+
+/* table公共样式 - start*/
+.cm-table-card {
+  width: 100% !important;
+}
+
+.cm-tableBtn {
+  margin-left: 10px;
+}
+
+/* table公共样式 - end*/
+
+/* 搜索框 - start */
+.cm-search-wrap {
+  background: #fff;
+  margin-bottom: 24px;
+}
+
+.cm-search-title {
+  padding: 16px 24px;
+  line-height: 32px;
+  border-bottom: 1px solid #efefef;
+}
+
+.cm-search-btns_wrap {
+  display: flex !important;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.cm-search-btns_wrap>button {
+  margin-right: 8px;
+}
+
+.cm-search-list {
+  padding: 24px 24px 0 !important;
+  transition: all 0.6s ease;
+  overflow: hidden;
+}
+
+.cm-search-list nz-form-control {
+  flex-grow: 1;
+  max-width: 200px;
+}
+
+.cm-search-list nz-upload {
+  width: 100%;
+}
+
+.cm-search-list nz-range-picker {
+  width: 340px;
+}
+
+.cm-search-list_close {
+  height: 0 !important;
+  padding: 0 24px 0 !important;
+}
+
+.cm-stateIcon {
+  transition: all 0.6s ease;
+}
+
+.cm-closeIcon {
+  transform: rotate(180deg);
+}
+
+/* 搜索框 - end */
+
+.trigger {
+  color: #E02020
+}
+
+.trigger:hover {
+  color: #E02020
+}
+
+.gray {
+  color: rgba(0, 0, 0, 0.25);
+}
+.gray:hover{
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.warn-color {
+  color: #ea5529;
+}
+.warn-color:hover{
+  color: #ea5529;
+}
+
+.success-color {
+  color: #25a65a;
+}
+.success-color:hover{
+  color: #25a65a;
+}
+
+input.readonly{
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+input.readonly:hover {
+  border: 1px solid #d9d9d9;
+  box-shadow: none;
+}
+input.readonly:focus{
+  border: 1px solid #d9d9d9;
+  box-shadow: none;
+}
+input.readonly:active{
+  border: 1px solid #d9d9d9;
+  box-shadow: none;
+}
+
+/* 总页码 */
+.total-show{
+  margin-right:10px;
+}
+/* 当行超出...显示 */
+.ell {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -1,0 +1,102 @@
+<!-- 货主端 -->
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <a routerLink="/owner/view/index">
+        <img
+          src="../assets/images/logo.png"
+          alt="logo"
+        >
+        <h1>后台管理系统</h1>
+      </a>
+    </div>
+    <div
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="isCollapsed"
+      class='slide-menu_wrap'
+    >
+      <div>
+        <div
+          nz-menu-item
+          nz-tooltip
+          [nzTitle]="isCollapsed ? '首页' : ''"
+          nzMatchRouter
+        >
+          <i
+            nz-icon
+            nzType="search"
+            nzTheme="outline"
+          ></i>
+          <a
+            routerLink="/pages"
+            [class.parentLink]='!isCollapsed'
+          >首页</a>
+        </div>
+        <div
+          nz-submenu
+          nzTitle="一级菜单"
+          nzIcon="search"
+          [nzOpen]="activeUrl.indexOf('/pages')==0"
+        >
+          <ul>
+            <li
+              nz-menu-item
+              nzMatchRouter
+            >
+              <a routerLink="/pages">二级菜单</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nz-sider>
+
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span
+          class="header-trigger"
+          (click)="isCollapsed = !isCollapsed"
+        >
+          <i
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></i>
+        </span>
+      </div>
+    </nz-header>
+    <!-- 面包屑 -->
+    <div class='menu-router'>
+      <nz-breadcrumb
+        [nzAutoGenerate]="true"
+        nzSeparator=">"
+      ></nz-breadcrumb>
+      <!-- 返回按钮 -->
+      <button
+        nz-button
+        nzType="default"
+        *ngIf="showBackBtn"
+        (click)='backHistory()'
+        class='cm-back-btn'
+      ><span class="iconfont icon-fanhui"></span>返回</button>
+    </div>
+    <nz-content>
+      <div
+        class="inner-content"
+        [@routeAnimations]="prepareRoute(outlet)"
+      >
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
